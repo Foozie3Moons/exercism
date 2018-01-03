@@ -6,10 +6,10 @@ class SumOfMultiples
   def to(max)
     multiples = []
     @factors.each do |factor|
-      multiples << (1..max-1).select {|multiple| multiple % factor == 0}
+      multiples << (1...max).select {|multiple| multiple % factor == 0}
     end
     return 0 if multiples.flatten.empty?
-    multiples.flatten.uniq.reduce(:+)
+    multiples.flatten.uniq.sum
   end
 end
 
